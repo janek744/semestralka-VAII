@@ -1,0 +1,164 @@
+body {
+    background-color: darkgrey;
+}
+
+.navbar {
+    background-color: #292929;
+}
+
+.nav-link, .navbar-brand, .nav-prihl {
+    color: white;
+    font-weight: bold;
+}
+
+.nav-prihl {
+    text-decoration: none;
+    margin-top: 18px;
+    margin-left: 5px;
+}
+
+.prihlasenie {
+    margin-left: 13%;
+}
+
+.card-title {
+    color: #292929;
+}
+
+.nav-prihl:hover {
+    color: #00bfff;
+}
+
+.btn {
+    background-color: #00bfff;
+    color: #292929;
+    font-weight: bold;
+}
+
+.navbar-brand {
+    font-size: 30px;
+}
+
+.navbar-brand:hover {
+    color: white;
+}
+
+.nav-link {
+    font-size: 25px;
+}
+
+.bif:hover {
+    color: #00bfff;
+    transform: scale(1.10, 1.10);
+}
+
+.bif, .nadpis, p, h1 {
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+}
+
+h1 {
+    padding-top: 20px;
+    padding-bottom: 40px;
+    padding-left: 30px;
+}
+
+.tlac {
+    margin-left: 45%;
+    margin-bottom: 20px;
+}
+
+.nadp, .tex, .obr {
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    padding-left: 20px;
+}
+
+.tex, .obr, .nadp {
+    margin-left: 60px;
+}
+
+.text {
+    padding-left: 30px;
+    display:inline-block;
+}
+
+label {
+    text-decoration: none;
+}
+
+.nadpis:hover {
+    color: #00bfff;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: white;
+    background-color: #00bfff;
+    transform: scale(1.10, 1.10);
+    border-radius: 12%;
+}
+
+.navbar-nav {
+    padding-left: 48%;
+}
+
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg%27%3E%3Cpath stroke='rgba(233,238,241, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.nav {
+
+    justify-content: center;
+}
+
+.prispevok {
+    border-radius: 15px;
+    border: 3px solid #00bfff;
+    width: 65%;
+    padding-top: 15px;
+}
+img  {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    border-radius: 15px;
+    vertical-align: middle;
+}
+
+p {
+    display: inline;
+}
+
+.text {
+
+}
+
+.container-fluid {
+    padding-left: 15%;
+    background-color: #292929;
+}
+
+.copy {
+    text-align: center;
+    font-weight: bold;
+}
+.border-bottom {
+    background-color: #292929;
+}
+
+
+.bif {
+    font-size: 50px;
+    padding-left: 10px;
+}
+
+.footer {
+    text-align: center;
+    color: white;
+    background-color: #292929;
+}
