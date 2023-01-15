@@ -12,7 +12,7 @@ use App\Auth\LoginAuthenticator;
  */
 class Configuration
 {
-    public const APP_NAME = 'Checkpoint 2';
+    public const APP_NAME = 'Semestralka';
     public const FW_VERSION = '2.0';
 
     public const DB_HOST = 'localhost';  // change to db, if docker you use docker
