@@ -7,7 +7,7 @@ use App\Core\Model;
 class User extends Model
 {
     protected $id;
-    protected $username;
+    protected $login;
     protected $password;
 
     /**
@@ -29,17 +29,17 @@ class User extends Model
     /**
      * @return mixed
      */
-    public function getUserUsername()
+    public function getUserLogin()
     {
-        return $this->username;
+        return $this->login;
     }
 
     /**
-     * @param mixed $username
+     * @param mixed $login
      */
-    public function setUserUsername($username): void
+    public function setUserLogin($login): void
     {
-        $this->username = $username;
+        $this->login = $login;
     }
 
     /**

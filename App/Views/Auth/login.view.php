@@ -1,3 +1,4 @@
+
 <?php
 $layout = 'auth';
 /** @var Array $data */

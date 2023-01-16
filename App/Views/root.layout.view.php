@@ -29,8 +29,9 @@
                 <a class="nav-link" href="?c=prispevky">Domov</a>
                 <a class="nav-link" aria-current="page" href="?c=prispevky">Príspevky</a>
                 <a class="nav-link" href="?c=prispevky">Info</a>
+                <a class="nav-link" href="?c=users&a=create">USERS</a>
                 <?php if (!$auth->isLogged()) { ?>
-                <a class="nav-prihl" href="?c=auth">Prihlásiť</a>
+                    <a class="nav-prihl" href="?c=users&a=create">Prihlásiť</a>
                 <?php } ?>
                 <?php if ($auth->isLogged()) { ?>
                     <a class="nav-link" href="?c=prispevky&a=create">Vytvor</a>
