@@ -6,8 +6,9 @@ use \App\Models\Prispevok;
 ?>
 <body>
 
-<div class="container-fluid cont">
-<?php foreach ($data as $prispevok)  {
+    <div class="container-fluid cont">
+    <?php
+    foreach ($data as $prispevok)  {
     ?>
     <div class="row prispevok">
     <?php if ($prispevok->getNazov()) { ?>
@@ -24,6 +25,8 @@ use \App\Models\Prispevok;
             <?php $string = substr($prispevok->getText(), 0 ,250);
             echo implode("\n", str_split($string, 40)); ?>
         </p>
+            <a href="?c=comment&a=create&id=<?php echo $prispevok->getIdPrispevku()?>" class="btn btn-danger">pridať koment</a>
+            <a href="?c=comment&id=<?php echo $prispevok->getIdPrispevku()?>" class="btn btn-danger">zobraz komenty</a>
         </div>
         <?php if ($auth->isLogged()) { ?>
             <a href="?c=prispevky&a=edit&id=<?php echo $prispevok->getIdPrispevku()?>" class="btn btn-danger">EDIT</a>

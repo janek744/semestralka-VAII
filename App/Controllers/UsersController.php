@@ -96,7 +96,6 @@ class UsersController extends AControllerBase
 
     public function edit() {
         $id = $this->request()->getValue('id');
-        return $this->redirect("?c=users");
         $userToEdit = User::getOne($id);
         return $this->html($userToEdit, viewName: 'create.user');
     }

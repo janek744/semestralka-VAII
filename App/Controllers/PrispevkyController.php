@@ -74,7 +74,6 @@ class PrispevkyController extends AControllerBase
 
     public function edit() {
         $id = $this->request()->getValue('id');
-        return $this->redirect("?c=prispevky");
         $postToEdit = Prispevok::getOne($id);
         return $this->html($postToEdit, viewName: 'create.form');
     }

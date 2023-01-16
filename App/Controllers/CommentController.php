@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Core\AControllerBase;
 use App\Core\Responses\Response;
 use App\Models\Comment;
+use App\Models\User;
+use App\Models\Prispevok;
 
 class CommentController extends AControllerBase
 {
@@ -31,29 +33,21 @@ class CommentController extends AControllerBase
         return $this->html($comments);
     }
 
-    public function delete() {
-
-        $id = $this->request()->getValue('id');
-        $postToDelete = Comment::getOne($id);
-        if ($postToDelete) {
-            $postToDelete->delete();
-        }
-        return $this->redirect("?c=prispevky");
-    }
-
     public function store() {
         $id = $this->request()->getValue('id');
-        $post = ( $id ? Comment::getOne($id) : new Comment());
+        $comment = ( $id ? Comment::getOne($id) : new Comment());
         $error = 0;
 
         if ($this->request()->getValue('text') == null) {
             $error++;
         }
-        else{$post->setCommentText($this->request()->getValue('text'));}
+        else{$comment->setCommentText($this->request()->getValue('text'));}
 
-        if ($error > 0) {return $this->redirect("?c=prispevky&a=create");
+        $comment->setCommentText($this->request()->getValue('post'));
+
+        if ($error > 0) {return $this->redirect("?c=comment&a=create");
         } else {
-            $post->save();
+            $comment->save();
             return $this->redirect("?c=prispevky");}
     }
 
