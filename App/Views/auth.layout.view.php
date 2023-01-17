@@ -38,6 +38,8 @@
                     <a class="nav-prihl" href="c=prispevky&a=create">Prihlásiť</a>
                 <?php } ?>
                 <?php if ($auth->isLogged()) { ?>
+                <!--<?php ///**  @var \App\Models\Member $data */?>
+                    <a class="nav-link" href="?c=prispevky&a=create&memId=<?php //echo $data->getMemberId()?>"">Vytvor</a> -->
                     <a class="nav-link" href="?c=prispevky&a=create">Vytvor</a>
                     <a class="nav-link" href="?c=members&a=change">Zmenit</a>
                     <a class="nav-link" href="?c=members&a=remove">Vymazat</a>

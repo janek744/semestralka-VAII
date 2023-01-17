@@ -18,10 +18,9 @@ class CommentController extends AControllerBase
     public function authorize($action)
     {
         switch ($action){
-            case "delete":
             case "store":
             case "create":
-            case "edit":
+            case "delete":
                 return $this->app->getAuth()->isLogged();
         }
         return true;

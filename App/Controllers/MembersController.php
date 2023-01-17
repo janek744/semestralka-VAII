@@ -34,30 +34,38 @@ class MembersController extends AControllerBase
 
     public function delete() {
         $data = Member::getAll();
-
         $id = $this->request()->getValue('id');
-        $password = $this->request()->getValue('oldpass');
-
-
-        $id = 0;
+        $i = false;
 
         foreach ($data as $log) {
-            if ($log->isActive()) {
-                $id = $log->getMemberId();
+            if ($log->getMemberId() == $id) {
+                $i = true;
                 break;
             }
         }
-        $id = 13;
-        $userToDelete = Member::getOne($id);
-        if ($userToDelete->getMemberPassword() == $password) {
-            if ($userToDelete) {
-                $userToDelete->delete();
+
+        if ($i) {
+            $password = $this->request()->getValue('oldpass');
+            $id = 0;
+
+            foreach ($data as $log) {
+                if ($log->isActive()) {
+                    $id = $log->getMemberId();
+                    break;
+                }
             }
-            return $this->redirect("?c=members");
-        } else {
-            echo "Zadané zlé heslo";
-            $this->remove();
-        }
+            $id = 13;
+            $userToDelete = Member::getOne($id);
+            if ($userToDelete->getMemberPassword() == $password) {
+                if ($userToDelete) {
+                    $userToDelete->delete();
+                }
+                return $this->redirect("?c=members");
+            } else {
+                echo "Zadané zlé heslo";
+                $this->remove();
+            }
+        } else {return $this->redirect("?c=prispevky");}
     }
 
     public function remove() {
@@ -92,7 +100,8 @@ class MembersController extends AControllerBase
             if ($this->request()->getValue('password') == null) {
                 $error++;
             } else {
-                $user->setMemberPassword($this->request()->getValue('password'));
+                $hpassword = password_hash($this->request()->getValue('password'),PASSWORD_DEFAULT);
+                $user->setMemberPassword($hpassword);
             }
 
             if ($error > 0) {
@@ -132,20 +141,16 @@ class MembersController extends AControllerBase
             echo "Použivatel sa v databáze nenachádza";
             return $this->html(new Member(), viewName: 'log.member');
         } else {
-            if (Member::getOne($id)->getMemberPassword() == $password) {
+            if (password_verify($password,Member::getOne($id)->getMemberPassword())) {
                 echo "Uživatel bol prihlásený";
                 echo $id;
-                if (Member::getOne($id)->isActive()) {
+                /*if (Member::getOne($id)->isActive()) {
                     echo "active";
-                } else { echo "not active";}
+                } else { echo "not active";}*/
 
                 Member::getOne($id)->setActive(true);
 
-                if (Member::getOne($id)->isActive()) {
-                    echo "active";
-                } else { echo "not active";}
-
-                Member::getOne(50)->setMemberPassword("dsasad");
+                //Member::getOne(50)->setMemberPassword("dsasad");
                 return $this->redirect("?c=prispevky");
             } else {
                 echo "Zadané zlé heslo";
@@ -164,29 +169,41 @@ class MembersController extends AControllerBase
 
     public function edit() {
         $data = Member::getAll();
-
-        $oldpass = $this->request()->getValue('oldpass');
-        $newpass = $this->request()->getValue('newpass');
-        $id = 0;
+        $id = $this->request()->getValue('id');
+        $i = false;
 
         foreach ($data as $log) {
-            if ($log->isActive()) {
-                $id = $log->getMemberId();
+            if ($log->getMemberId() == $id) {
+                $i = true;
                 break;
             }
         }
-        echo $id;
-        if (Member::getOne(16)->isActive()) {
-            echo "active";
-        } else { echo "not active";}
 
-        $userToEdit = Member::getOne($id);
+        if ($i) {
+            $oldpass = $this->request()->getValue('oldpass');
+            $newpass = $this->request()->getValue('newpass');
+            $id = 0;
 
-        if ($userToEdit->getMemberPassword() == $oldpass) {
-            $userToEdit->setMemberPassword($newpass);
-            $userToEdit->save();
+            foreach ($data as $log) {
+                if ($log->isActive()) {
+                    $id = $log->getMemberId();
+                    break;
+                }
+            }
+            echo $id;
+            if (Member::getOne(16)->isActive()) {
+                echo "active";
+            } else {
+                echo "not active";
+            }
+
+            $userToEdit = Member::getOne($id);
+
+            if ($userToEdit->getMemberPassword() == $oldpass) {
+                $userToEdit->setMemberPassword($newpass);
+                $userToEdit->save();
+            }
         }
-
 
         return $this->redirect("?c=prispevky");
     }
