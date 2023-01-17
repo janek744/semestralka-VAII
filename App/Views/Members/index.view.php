@@ -3,7 +3,7 @@
 use \App\Models\Comment;
 /** @var \App\Core\IAuthenticator $auth */
 /** @var Comment[] $data */
-/** @var \App\Models\User $author */
+/** @var \App\Models\Member $author */
 ?>
 
 <body>

@@ -7,7 +7,6 @@ use App\Core\Model;
 class Comment extends Model
 {
     protected $id;
-    protected $author;
     protected $post;
     protected $text;
 
@@ -30,17 +29,17 @@ class Comment extends Model
     /**
      * @return mixed
      */
-    public function getCommentAuthor()
+    public function getCommentPost()
     {
-        return $this->author;
+        return $this->post;
     }
 
     /**
-     * @param mixed $author
+     * @param mixed $post
      */
-    public function setCommentAuthor($author): void
+    public function setCommentPost($post): void
     {
-        $this->author = $author;
+        $this->post = $post;
     }
 
     /**
@@ -59,20 +58,5 @@ class Comment extends Model
         $this->text = $text;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getCommentPost()
-    {
-        return $this->text;
-    }
-
-    /**
-     * @param mixed $text
-     */
-    public function setCommentPost($text): void
-    {
-        $this->text = $text;
-    }
 
 }

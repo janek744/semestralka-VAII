@@ -4,16 +4,17 @@ namespace App\Models;
 
 use App\Core\Model;
 
-class User extends Model
+class Member extends Model
 {
     protected $id;
     protected $login;
     protected $password;
+    protected $active = false;
 
     /**
      * @return mixed
      */
-    public function getUserId()
+    public function getMemberId()
     {
         return $this->id;
     }
@@ -21,7 +22,7 @@ class User extends Model
     /**
      * @param mixed $id
      */
-    public function setUserId($id): void
+    public function setMemberId($id): void
     {
         $this->id = $id;
     }
@@ -29,7 +30,7 @@ class User extends Model
     /**
      * @return mixed
      */
-    public function getUserLogin()
+    public function getMemberLogin()
     {
         return $this->login;
     }
@@ -37,7 +38,7 @@ class User extends Model
     /**
      * @param mixed $login
      */
-    public function setUserLogin($login): void
+    public function setMemberLogin($login): void
     {
         $this->login = $login;
     }
@@ -45,7 +46,7 @@ class User extends Model
     /**
      * @return mixed
      */
-    public function getUserPassword()
+    public function getMemberPassword()
     {
         return $this->password;
     }
@@ -53,8 +54,24 @@ class User extends Model
     /**
      * @param mixed $password
      */
-    public function setUserPassword($password): void
+    public function setMemberPassword($password): void
     {
         $this->password = $password;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isActive(): bool
+    {
+        return $this->active;
+    }
+
+    /**
+     * @param bool $active
+     */
+    public function setActive(bool $active): void
+    {
+        $this->active = true;
     }
 }

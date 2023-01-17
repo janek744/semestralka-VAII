@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Core\AControllerBase;
 use App\Core\Responses\Response;
 use App\Models\Comment;
-use App\Models\User;
+use App\Models\Member;
 use App\Models\Prispevok;
 
 class CommentController extends AControllerBase
@@ -35,6 +35,8 @@ class CommentController extends AControllerBase
 
     public function store() {
         $id = $this->request()->getValue('id');
+        $postId = $this->request()->getValue('postId');
+        echo $postId;
         $comment = ( $id ? Comment::getOne($id) : new Comment());
         $error = 0;
 
@@ -43,7 +45,8 @@ class CommentController extends AControllerBase
         }
         else{$comment->setCommentText($this->request()->getValue('text'));}
 
-        $comment->setCommentText($this->request()->getValue('post'));
+        $comment->setCommentPost($postId);
+        echo $comment->getCommentPost();
 
         if ($error > 0) {return $this->redirect("?c=comment&a=create");
         } else {

@@ -5,28 +5,28 @@ $layout = 'auth';
 
 <div class="container-fluid cont">
     <div class="row prispevok">
-        <form method="post" action="?c=users&a=store">
-            <?php /**  @var \App\Models\User $data */
-            if ($data->getUserId()) { ?>
-                <input type="hidden" name="id" value="<?php echo $data->getUserId() ?>">
+        <form method="post" action="?c=members&a=store">
+            <?php /**  @var \App\Models\Member $data */
+            if ($data->getMemberId()) { ?>
+                <input type="hidden" name="id" value="<?php echo $data->getMemberId() ?>">
             <?php } ?>
             <h1>Registrácia</h1>
             <div class="nadp">
                 <label>Username
-                    <input type="text" name="login" id="nazovForm" value="<?php echo $data->getUserLogin() ?>" style="width: 500px; margin-left: 20px">
+                    <input type="text" name="login" id="nazovForm" value="<?php echo $data->getMemberLogin() ?>" style="width: 500px; margin-left: 20px">
                 </label>
             </div>
 
             <div class="obr">
                 <br>
                 <label>Password
-                    <input type="text" name="password" id="obrazokForm" value="<?php echo $data->getUserPassword() ?>" style="width: 500px; margin-left: 25px;">
+                    <input type="text" name="password" id="obrazokForm" value="<?php echo $data->getMemberPassword() ?>" style="width: 500px; margin-left: 25px;">
                 </label>
                 <br><br>
             </div>
 
             <div class="log-registracia">
-                <a href="?c=users&a=log">Prihlasiť</a>
+                <a href="?c=members&a=log">Prihlasiť</a>
             </div>
 
             <div class="tlac">

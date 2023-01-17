@@ -13,7 +13,13 @@ $layout = 'auth';
             <h1>Pridanie komentu</h1>
             <div class="nadp">
                 <label>Text
-                    <input type="text" name="login" id="nazovForm" value="<?php echo $data->getCommentText() ?>" style="width: 500px; margin-left: 20px">
+                    <input type="text" name="text" id="nazovForm" value="<?php echo $data->getCommentText() ?>" style="width: 500px; margin-left: 20px">
+                </label>
+            </div>
+            <br>
+            <div class="nadp">
+                <label>Text
+                    <input type="text" name="postId" id="nazovForm" value="<?php echo $_GET["postId"] ?>" style="width: 500px; margin-left: 20px">
                 </label>
             </div>
             <br>
