@@ -69,7 +69,7 @@ class LoginAuthenticator implements IAuthenticator
 
     function getLoggedUserId(): mixed
     {
-        return $_SESSION["user"]->getId() ?? throw new \Exception("User not logged in");
+        return $_SESSION["user"]->getUserId() ?? throw new \Exception("User not logged in");
     }
 
     function getLoggedUserContext(): mixed
@@ -79,6 +79,6 @@ class LoginAuthenticator implements IAuthenticator
 
     function getLoggedUserName(): string
     {
-        return $_SESSION["user"]->getLogin() ?? throw new \Exception("User not logged in");
+        return $_SESSION["user"]->getUserLogin() ?? throw new \Exception("User not logged in");
     }
 }

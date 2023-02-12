@@ -34,8 +34,8 @@
                 <?php } ?>
                 <?php if ($auth->isLogged()) { ?>
                     <a class="nav-link" href="?c=prispevky&a=create">Vytvor</a>
-                    <a class="nav-link" href="?c=members&a=change">Zmenit</a>
-                    <a class="nav-link" href="?c=members&a=remove">Vymazat</a>
+                    <a class="nav-link" href="?c=user&a=edit">Zmenit</a>
+                    <a class="nav-link" href="?c=user&a=delete">Vymazat</a>
                     <a class="nav-prihl" href="?c=auth&a=logout">Odhlásiť</a>
                 <?php } ?>
             </div>

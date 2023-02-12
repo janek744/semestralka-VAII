@@ -62,4 +62,44 @@ class UserController extends AControllerBase
         }
         return $this->html();
     }
+
+    public function edit(): Response{
+        $data = $this->request()->getPost();
+
+
+        if (isset($data["oldpass"])) {
+            $user = User::getOne($this->app->getAuth()->getLoggedUserId());
+            if (password_verify($data["oldpass"], $user->getUserPassword())) {
+                $userPass = $data["newpass"];
+                if((strlen($userPass) < 3) || (strlen($userPass) > 10)){
+                    //if(!preg_match("/[0-9a-zA-Z]/",$userPass)) {
+                    return $this->html(["error" => 'Nesprávne zadané nové heslo']);
+                    //}
+                }
+                $password = password_hash($userPass, PASSWORD_DEFAULT);
+                $user->setUserPassword($password);
+                $user->save();
+                return $this->redirect("?c=prispevky");
+            } else {
+                return $this->html(["error"=>'Zle zadané heslo']);
+            }
+        }
+
+        return $this->html();
+    }
+
+    public function delete(): Response
+    {
+        $data = $this->request()->getPost();
+
+        if (isset($data["oldpass"])) {
+            $user = User::getOne($this->app->getAuth()->getLoggedUserId());
+            if (password_verify($data["oldpass"], $user->getUserPassword())) {
+                $this->app->getAuth()->logout();
+                $user->delete();
+                return $this->redirect("?c=prispevky");
+            }
+        }
+        return $this->html();
+    }
 }
