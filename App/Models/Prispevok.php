@@ -10,6 +10,23 @@ class Prispevok extends Model
     protected $obrazok;
     protected $nazov;
     protected $text;
+    protected $userID;
+
+    /**
+     * @return mixed
+     */
+    public function getUserID()
+    {
+        return $this->userID;
+    }
+
+    /**
+     * @param mixed $userID
+     */
+    public function setUserID($userID): void
+    {
+        $this->userID = $userID;
+    }
 
     /**
      * @return mixed

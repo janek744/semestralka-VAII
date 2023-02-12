@@ -26,11 +26,11 @@ body {
 }
 
 .nav-prihl:hover {
-    color: #00bfff;
+    color: #ff6700;
 }
 
 .btn {
-    background-color: #00bfff;
+    background-color: #ff6700;
     color: #292929;
     font-weight: bold;
 }
@@ -48,7 +48,7 @@ body {
 }
 
 .bif:hover {
-    color: #00bfff;
+    color: #ff6700;
     transform: scale(1.10, 1.10);
 }
 
@@ -81,7 +81,7 @@ a, .log-prihlasenie, .log-registracia {
 
 .log-prihlasenie:hover, .log-registracia:hover {
     text-decoration: underline;
-    color: #00bfff;
+    color: #ff6700;
 }
 
 a:hover {
@@ -110,13 +110,13 @@ label {
 }
 
 .nadpis:hover {
-    color: #00bfff;
+    color: #ff6700;
     text-decoration: none;
 }
 
 .nav-link:hover {
     color: white;
-    background-color: #00bfff;
+    background-color: #ff6700;
     transform: scale(1.10, 1.10);
     border-radius: 12%;
 }
@@ -137,7 +137,7 @@ label {
 
 .prispevok {
     border-radius: 15px;
-    border: 3px solid #00bfff;
+    border: 3px solid #ff6700;
     width: 65%;
     padding-top: 15px;
 }
@@ -151,10 +151,6 @@ img  {
 
 p {
     display: inline;
-}
-
-.text {
-
 }
 
 .container-fluid {

@@ -3,8 +3,6 @@
 namespace App\Controllers;
 
 use App\Core\AControllerBase;
-use App\Core\Model;
-use App\Config\Configuration;
 use App\Core\Responses\Response;
 use App\Models\User;
 

@@ -98,6 +98,7 @@ class PrispevkyController extends AControllerBase
         if ($error > 0) {
             return $this->redirect("?c=prispevky&a=create");
         } else {
+            $post->setUserID($this->app->getAuth()->getLoggedUserId());
             $post->save();
             return $this->redirect("?c=prispevky");
         }
@@ -123,5 +124,10 @@ class PrispevkyController extends AControllerBase
             $postToEdit = Prispevok::getOne($id);
             return $this->html($postToEdit, viewName: 'create.form');
         } else {return $this->redirect("?c=prispevky");}
+    }
+
+    public function myPosts(): Response {
+        $prispevky = Prispevok::getAll();
+        return $this->html($prispevky);
     }
 }

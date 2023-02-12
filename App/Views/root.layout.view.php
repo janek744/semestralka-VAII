@@ -28,14 +28,14 @@
             <div class="navbar-nav">
                 <a class="nav-link" href="?c=prispevky">Domov</a>
                 <a class="nav-link" aria-current="page" href="?c=prispevky">Príspevky</a>
-                <a class="nav-link" href="?c=prispevky">Info</a>
                 <?php if (!$auth->isLogged()) { ?>
                     <a class="nav-prihl" href="?c=auth&a=login">Prihlásiť</a>
                 <?php } ?>
                 <?php if ($auth->isLogged()) { ?>
                     <a class="nav-link" href="?c=prispevky&a=create">Vytvor</a>
-                    <a class="nav-link" href="?c=user&a=edit">Zmenit</a>
-                    <a class="nav-link" href="?c=user&a=delete">Vymazat</a>
+                    <a class="nav-link" href="?c=user&a=edit">Zmeniť</a>
+                    <a class="nav-link" href="?c=user&a=delete">Vymazať</a>
+                    <a class="nav-link" href="?c=prispevky&a=myPosts">MyPosts</a>
                     <a class="nav-prihl" href="?c=auth&a=logout">Odhlásiť</a>
                 <?php } ?>
             </div>
