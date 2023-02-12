@@ -5,12 +5,14 @@ $layout = 'auth';
 
 <div class="container-fluid cont">
     <div class="row prispevok">
-        <div class="text-center text-danger mb-3">
-            <?= @$data['message'] ?>
-        </div>
-        <form class="form-signin" method="post" action="<?= \App\Config\Configuration::LOGIN_URL ?>">
+        <form method="post" action="?c=user&a=register">
+            <?php if($data != null){ ?>
+                <?php foreach ($data as $item) { ?>
+                    <div class='text-danger'><?=@$item?></div><br>
+                <?php }?>
+            <?php }?>
             <input type="hidden" name="id" value="">
-            <h1>Prihlásenie</h1>
+            <h1>Registrácia</h1>
             <div class="nadp">
                 <label>Username
                     <input type="text" name="login" id="nazovForm" value="" style="width: 500px; margin-left: 20px">
@@ -26,11 +28,11 @@ $layout = 'auth';
             </div>
 
             <div class="log-prihlasenie">
-                <a href="?c=user&a=register">Registrovať</a>
+                <a href="?c=auth&a=login">Prihlásiť</a>
             </div>
 
             <div class="tlac">
-                <button class="btn btn-primary" type="submit" name="submit">Login</button>
+                <input type="submit" name="tlacitko" id="tlacitkoForm" value="Odoslat">
             </div>
 
         </form>

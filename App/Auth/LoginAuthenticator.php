@@ -2,27 +2,83 @@
 
 namespace App\Auth;
 
-class LoginAuthenticator extends DummyAuthenticator
+use App\Core\IAuthenticator;
+use App\Models\User;
+
+/**
+ * Class LoginAuthenticator
+ * @package App\Auth
+ */
+
+class LoginAuthenticator implements IAuthenticator
 {
 
-    function login($login, $password): bool
+    /**
+     * LoginAuthenticator constructor
+     */
+    public function __construct()
     {
-        $error = 0;
-        if (empty($login)){$error++;}
-        if (empty($password)){$error++;}
+        session_start();
+    }
 
-        if(!empty($login)) {
-            if (preg_match("/[^A-Za-z0-9]/", $login)) {$error++;}
+    /**
+     * Verify, if the user is in DB and has his password is correct
+     * @param $login
+     * @param $password
+     * @return bool
+     * @throws \Exception
+     */
+
+    function login($login, $password) : bool
+    {
+        $allusers = User::getAll();
+        $user = null;
+
+        foreach ($allusers as $person) {
+            if ($person->getUserLogin() == $login) {
+                if (password_verify($password, $person->getUserPassword())) {
+                    $user = $person;
+                    break;
+                }
+            }
         }
 
-        if (!empty($password)) {
-            if (preg_match("/[^A-Za-z0-9]/", $password)){$error++;}
-        }
-
-        if ($error <= 0) {
-            $_SESSION['user'] = $login;
+        if ($user != null) {
+            $_SESSION["user"] = $user;
             return true;
+        } else {
+            return false;
         }
-        return false;
+    }
+
+    /**
+     * Logout the user
+     */
+    function logout() : void
+    {
+        if (isset($_SESSION["user"])) {
+            unset($_SESSION["user"]);
+            session_destroy();
+        }
+    }
+
+    function isLogged() : bool
+    {
+        return isset($_SESSION["user"]);
+    }
+
+    function getLoggedUserId(): mixed
+    {
+        return $_SESSION["user"]->getId() ?? throw new \Exception("User not logged in");
+    }
+
+    function getLoggedUserContext(): mixed
+    {
+        return $_SESSION["user"] ?? throw new \Exception("User not logged in");
+    }
+
+    function getLoggedUserName(): string
+    {
+        return $_SESSION["user"]->getLogin() ?? throw new \Exception("User not logged in");
     }
 }

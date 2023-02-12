@@ -9,8 +9,7 @@ use App\Core\Request;
 use App\Core\Responses\RedirectResponse;
 use App\Core\Responses\Response;
 use App\Core\Router;
-use App\Models\Member;
-use http\Client\Curl\User;
+
 
 /**
  * Class App
@@ -31,8 +30,6 @@ class App
 
     private ?IAuthenticator $auth;
 
-    private Member $currentMember;
-
     /**
      * App constructor
      */
@@ -40,7 +37,7 @@ class App
     {
         $this->router = new Router();
         $this->request = new Request();
-        $this->currentMember = new Member();
+
         // Check if there is an authenticator
         if (defined('\\App\\Config\\Configuration::AUTH_CLASS')) {
             //$authClass = Configuration::AUTH_CLASS;
@@ -113,21 +110,5 @@ class App
     public function getAuth(): ?IAuthenticator
     {
         return $this->auth;
-    }
-
-    /**
-     * @return Member
-     */
-    public function getCurrentMember(): Member
-    {
-        return $this->currentMember;
-    }
-
-    /**
-     * @param Member $currentMember
-     */
-    public function setCurrentUser(Member $currentMember): void
-    {
-        $this->currentMember = $currentMember;
     }
 }

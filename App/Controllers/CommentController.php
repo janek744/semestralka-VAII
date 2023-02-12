@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Core\AControllerBase;
 use App\Core\Responses\Response;
 use App\Models\Comment;
-use App\Models\Member;
+use App\Models\User;
 use App\Models\Prispevok;
 
 class CommentController extends AControllerBase

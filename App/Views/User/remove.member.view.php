@@ -6,7 +6,7 @@ $layout = 'auth';
     <div class="container-fluid cont">
         <div class="row prispevok">
             <form method="post" action="?c=members&a=delete">
-                <?php /**  @var \App\Models\Member $data */
+                <?php /**  @var \App\Models\User $data */
                 if ($data->getMemberId()) { ?>
                     <input type="hidden" name="id" value="<?php echo $data->getMemberId() ?>">
                 <?php } ?>
