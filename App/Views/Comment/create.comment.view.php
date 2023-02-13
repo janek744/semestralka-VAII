@@ -18,9 +18,7 @@ $layout = 'auth';
             </div>
             <br>
             <div class="nadp">
-                <label>Text
-                    <input type="text" name="postId" id="nazovForm" value="<?php echo $_GET["postId"] ?>" style="width: 500px; margin-left: 20px">
-                </label>
+                <input type="text" name="postId" id="nazovForm" value="<?php echo $_GET["postId"] ?>" style="width: 0px; height: 0px">
             </div>
             <br>
             <div class="tlac">

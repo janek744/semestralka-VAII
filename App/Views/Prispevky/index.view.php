@@ -22,19 +22,22 @@ use \App\Models\Prispevok;
                         <?php } ?>
                     </div>
                     <div class="col-xxl-7 col-lg-12">
-                        <span id="formtext""><?php if ($prispevok->getText()) { ?></span>
-                        <p class="text">
+                        <span id="formtext"><?php if ($prispevok->getText()) { ?></span>
+                        <spa class="text">
                             <?php $string = substr($prispevok->getText(), 0 ,40);
                             echo implode("\n", str_split($string, 40)); ?>
-
-                        </p>
+                        </spa>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row col-md-auto">
+                    <div class="col-md-auto">
+                        <a href="?c=comment&postId=<?php echo $prispevok->getIdPrispevku()?>" class="btn" style="
+     margin-top:10px; margin-bottom:10px;">zobraz komenty</a>
+                    </div>
                     <?php if ($auth->isLogged()) { ?>
                         <div class="col-md-auto">
-                            <a href="?c=comment&postId=<?php echo $prispevok->getIdPrispevku()?>" class="btn btn-danger" style="width: 200px;
- margin-top:10px; margin-bottom:10px;">zobraz komenty</a>
+                            <a href="?c=comment&a=create&postId=<?php echo $prispevok->getIdPrispevku()?>" class="btn" style="
+ margin-top:10px; margin-bottom:10px;">pridať koment</a>
                         </div>
                     <?php } ?>
                 </div>

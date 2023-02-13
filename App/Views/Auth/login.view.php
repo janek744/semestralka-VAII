@@ -13,14 +13,14 @@ $layout = 'auth';
             <h1>Prihlásenie</h1>
             <div class="nadp">
                 <label>Username
-                    <input type="text" name="login" id="nazovForm" value="" style="width: 500px; margin-left: 20px">
+                    <input type="text" name="login" id="login" value="" style="width: 100%;">
                 </label>
             </div>
 
-            <div class="obr">
+            <div class="nadp">
                 <br>
                 <label>Password
-                    <input type="text" name="password" id="obrazokForm" value="" style="width: 500px; margin-left: 25px;">
+                    <input type="password" name="password" id="password" value="" style="width: 100%; margin-left: 4px">
                 </label>
                 <br><br>
             </div>
@@ -30,10 +30,10 @@ $layout = 'auth';
             </div>
 
             <div class="tlac">
-                <button class="btn btn-primary" type="submit" name="submit">Login</button>
+                <button class="btn" type="submit" name="submit" id="logBtn">Prihlásiť</button>
             </div>
 
         </form>
     </div>
 </div>
-<script src="public/js/script2.js"></script>
+<script src="public/js/login.js"></script>

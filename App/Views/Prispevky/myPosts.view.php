@@ -4,7 +4,6 @@ use \App\Models\Prispevok;
 /** @var \App\Core\IAuthenticator $auth */
 /** @var Prispevok[] $data */
 ?>
-<body>
 
 <div class="container-fluid cont">
     <?php
@@ -24,27 +23,27 @@ use \App\Models\Prispevok;
                     <?php } ?>
                 </div>
                 <div class="col-xxl-7 col-lg-12">
-                    <span id="formtext""><?php if ($prispevok->getText()) { ?></span>
-                    <p class="hidden">
-                        <?php $string = substr($prispevok->getText(), 0 ,40);
-                        echo implode("\n", str_split($string, 40)); ?>
-
+                    <span><?php if ($prispevok->getText()) { ?></span>
+                    <p class="hidden" id="formtext" onresize="return myFunction()">
+                        <?php
+                        //$string = editText($prispevok->getText());
+                        echo $prispevok->getText()?>
                     </p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-auto">
-                    <a href="?c=comment&postId=<?php echo $prispevok->getIdPrispevku()?>" class="btn btn-danger" style="width: 200px;
- margin-top:10px; margin-bottom:10px;">zobraz komenty</a>
+                    <a href="?c=comment&postId=<?php echo $prispevok->getIdPrispevku()?>" class="btn" style="width: 200px;
+ margin-top:10px; margin-bottom:10px;">KOMENTY</a>
                 </div>
                 <?php if ($auth->isLogged()) { ?>
                     <div class="col-md-auto">
-                    <a href="?c=prispevky&a=edit&id=<?php echo $prispevok->getIdPrispevku()?>" class="btn btn-danger" style="width: 200px;
- margin-top:10px;margin-bottom:10px;">EDIT</a>
+                    <a href="?c=prispevky&a=edit&id=<?php echo $prispevok->getIdPrispevku()?>" class="btn" style="width: 200px;
+ margin-top:10px;margin-bottom:10px;">EDITOVAŤ</a>
                 </div>
                     <div class="col-md-auto">
-                    <a href="?c=prispevky&a=delete&id=<?php echo $prispevok->getIdPrispevku()?>" class="btn btn-danger" style="width: 200px;
- margin-top:10px;margin-bottom:10px;">DELETE</a>
+                    <a href="?c=prispevky&a=delete&id=<?php echo $prispevok->getIdPrispevku()?>" class="btn" onresize="return deletePost (<?=$prispevok->getIdPrispevku()?>)" onclick="return deletePost (<?=$prispevok->getIdPrispevku()?>)" style="width: 200px;
+ margin-top:10px;margin-bottom:10px;">VYMAZAŤ</a>
                 </div>
                 <?php } ?>
             </div>
@@ -53,4 +52,4 @@ use \App\Models\Prispevok;
         <?php } ?>
     <?php } ?>
 </div>
-</body>
+<script src="public/js/posts.js"></script>

@@ -22,3 +22,13 @@ window.onload = function () {
         }
     }
 }
+
+window.oninput = function () {
+    let login = document.getElementById("login");
+
+    if (!/^[A-Za-z0-9]*$/.test(login.value)) {
+        login.style.color = "#ff0000";
+    } else {
+        login.style.color = "#000000";
+    }
+}

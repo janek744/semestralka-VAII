@@ -34,15 +34,15 @@ class UserController extends AControllerBase
             $userName = $_POST["login"];
             $userPass = $_POST["password"];
             if((strlen($userName) < 1) || (strlen($userName) > 10)){
-                //if(preg_match("/([a-zA-Z0-9])/", $userName) == FALSE){
+                if (preg_match("/[^A-Za-z0-9]/", $userName)){
                     return $this->html(["error" => 'Nesprávne zadaný login']);
-                //}
+                }
             }
 
             if((strlen($userPass) < 3) || (strlen($userPass) > 10)){
-                //if(!preg_match("/[0-9a-zA-Z]/",$userPass)) {
+                if (preg_match("/[^A-Za-z0-9]/", $userPass)){
                     return $this->html(["error" => 'Nesprávne zadané heslo']);
-                //}
+                }
             }
 
             foreach ($allusers as $person){

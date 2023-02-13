@@ -14,29 +14,28 @@ $layout = 'auth';
 
                 <div class="nadp">
                     <label>Názov
-                    <input type="text" name="nazov" id="nazovForm" value="<?php echo $data->getNazov() ?>" style="width: 500px; margin-left: 45px">
+                        <input type="text" name="nazov" id="nazovForm" value="<?php echo $data->getNazov() ?>" style="width: 90%;">
                     </label>
                 </div>
 
-                <div class="obr">
-                    <br>
-                    <label>Obrázok
-                    <input type="text" name="obrazok" id="obrazokForm" value="<?php echo $data->getObrazok() ?>" style="width: 500px; margin-left: 20px;">
-                    </label>
-                    <br><br>
-                </div>
-
-                <div class="tex">
-                    <label">Text
-                    <input type="text" name="text" id="textForm" value="<?php echo $data->getText() ?>" style="width: 500px; height: 100px; margin-left: 70px; vertical-align: top;">
-                    </label>
-                </div>
-
+            <div class="nadp">
+                <br>
+                <label>Obrázok
+                    <input type="file" name="obrazok" id="obrazokForm" value="<?php echo $data->getObrazok() ?>" style="width: 90%;">
+                </label>
                 <br><br>
+            </div>
 
-                <div class="tlac">
-                    <input type="submit" name="tlacitko" id="tlacitkoForm" value="Odoslat">
-                </div>
+            <div class="nadp">
+                <br>
+                <label">Text
+                    <input type="text" name="text" id="textForm" value="<?php echo $data->getText() ?>"style="width: 90%; he">
+                </label>
+            </div>
+                <br><br>
+            <div class="tlac">
+                <input type="submit" name="tlacitko" id="tlacitkoForm" value="Odoslat">
+            </div>
 
         </form>
     </div>

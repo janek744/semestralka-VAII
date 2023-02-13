@@ -35,6 +35,11 @@ body {
     font-weight: bold;
 }
 
+.btn:hover {
+    background-color: #292929;
+    color: #ff6700;
+}
+
 .navbar-brand {
     font-size: 30px;
 }
@@ -65,8 +70,13 @@ h1 {
 }
 
 .tlac {
-    margin-left: 45%;
+    margin-left: 40%;
     margin-bottom: 20px;
+}
+
+.text {
+    color: white;
+    font-weight: bold;
 }
 
 a, .log-prihlasenie, .log-registracia {
@@ -84,15 +94,14 @@ a, .log-prihlasenie, .log-registracia {
     color: #ff6700;
 }
 
-a:hover {
-
-}
-
 .nadp, .tex, .obr {
     text-decoration: none;
     font-size: 25px;
     font-weight: bold;
     color: white;
+}
+
+.tex, .obr {
     padding-left: 20px;
 }
 
@@ -144,7 +153,7 @@ label {
 img  {
     width: 100%;
     height: auto;
-    padding: 10px;
+    padding-left: 10px;
     border-radius: 15px;
     vertical-align: middle;
 }
