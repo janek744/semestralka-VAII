@@ -4,10 +4,10 @@ namespace App\Models;
 
 use App\Core\Model;
 
-class Event extends Model
+class Filter extends Model
 {
     protected $id;
-    protected $text;
+    protected $filter_name;
 
     /**
      * @return mixed
@@ -28,19 +28,16 @@ class Event extends Model
     /**
      * @return mixed
      */
-    public function getText()
+    public function getFilterName()
     {
-        return $this->text;
+        return $this->filter_name;
     }
 
     /**
-     * @param mixed $text
+     * @param mixed $filter_name
      */
-    public function setText($text): void
+    public function setFilterName($filter_name): void
     {
-        $this->text = $text;
+        $this->filter_name = $filter_name;
     }
-
-
-
 }

@@ -94,11 +94,6 @@ class PrispevkyController extends AControllerBase
         } else {
             $post->setText($this->request()->getValue('text'));
         }
-        if ($this->request()->getValue('zza') == null) {
-            $post->setFilterID(4);
-        } else {
-            $post->setFilterID('opt');
-        }
 
         if ($error > 0) {
             return $this->redirect("?c=prispevky&a=create");
@@ -137,9 +132,16 @@ class PrispevkyController extends AControllerBase
         $prispevky = Prispevok::getAll();
         return $this->html($prispevky);
     }
+    public function refresh(): Response
+    {
+        $data = Prispevok::getAll();
+        return $this->html($data);
+    }
 
-    public function filteredPosts(): Response {
-        $prispevky = Prispevok::getAll();
-        return $this->html($prispevky);
+    public function filteredPosts()
+    {
+        return $this->html();
+        //$data = Prispevok::getAll();
+        //return $this->html($data);
     }
 }

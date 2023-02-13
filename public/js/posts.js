@@ -15,6 +15,17 @@ window.onresize = function() {
     if (window.innerWidth > 1140) {
         fname.style.fontSize = "20px";
     }*/
+    let fname = document.getElementById("formtext");
+
+    if (window.innerWidth > 720) {
+        fname.style.fontSize = "40px";
+    }
+    if (window.innerWidth > 960) {
+        fname.style.fontSize = "60px";
+    }
+    if (window.innerWidth > 1140) {
+        fname.style.fontSize = "20px";
+    }
 }
 
 function deletePost(id) {

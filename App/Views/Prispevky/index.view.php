@@ -23,10 +23,10 @@ use \App\Models\Prispevok;
                     </div>
                     <div class="col-xxl-7 col-lg-12">
                         <span id="formtext"><?php if ($prispevok->getText()) { ?></span>
-                        <spa class="text">
+                        <span class="text">
                             <?php $string = substr($prispevok->getText(), 0 ,40);
                             echo implode("\n", str_split($string, 40)); ?>
-                        </spa>
+                        </span>
                     </div>
                 </div>
                 <div class="row col-md-auto">
