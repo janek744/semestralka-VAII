@@ -21,14 +21,15 @@ $layout = 'auth';
             <div class="nadp">
                 <br>
                 <label>Obrázok
-                    <input type="file" name="obrazok" id="obrazokForm" value="<?php echo $data->getObrazok() ?>" style="width: 90%;">
+                    <input type="text" name="obrazok" id="obrazokForm" value="<?php echo $data->getObrazok() ?>" style="width: 90%;">
                 </label>
-                <br><br>
+                <br>
             </div>
 
             <div class="nadp">
                 <br>
                 <label">Text
+                <br>
                     <input type="text" name="text" id="textForm" value="<?php echo $data->getText() ?>" style="width: 90%; he">
                 </label>
             </div>
@@ -45,7 +46,7 @@ $layout = 'auth';
             </div>
             <br><br>
             <div class="tlac">
-                <input type="submit" name="tlacitko" id="tlacitkoForm" value="Odoslat">
+                <input type="submit" name="tlacitko" class="btn" id="tlacitkoForm" value="Odoslat">
             </div>
 
         </form>

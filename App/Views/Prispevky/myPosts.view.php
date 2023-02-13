@@ -26,8 +26,8 @@ use \App\Models\Prispevok;
                     <span><?php if ($prispevok->getText()) { ?></span>
                     <p class="hidden" id="formtext" onresize="return myFunction()">
                         <?php
-                        //$string = editText($prispevok->getText());
-                        echo $prispevok->getText()?>
+                        $string = substr($prispevok->getText(), 0 ,11);
+                        echo implode("\n", str_split($string, 11));?>
                     </p>
                 </div>
             </div>

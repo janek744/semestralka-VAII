@@ -7,9 +7,9 @@ async function getFilters() {
             document.getElementById('filters').innerHTML = this.responseText;
         }
     }
-    $postId = document.getElementById('opt').value;
+    let postId = document.getElementById('opt').value;
 
-    console.log($postId);
-    xmlHttp.open("GET", "?c=prispevky&a=refresh&postID=$postId", true);
+    console.log(postId);
+    xmlHttp.open("GET", "?c=prispevky&a=refresh&postID=3", true);
     xmlHttp.send();
 }

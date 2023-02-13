@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Core\AControllerBase;
 use App\Core\Responses\Response;
 use App\Models\Comment;
+use App\Models\Filter;
 use App\Models\Prispevok;
 
 class PrispevkyController extends AControllerBase
@@ -75,21 +76,20 @@ class PrispevkyController extends AControllerBase
         $error = 0;
 
         if ($this->request()->getValue('obrazok') == null) {
-            $post->setObrazok("Nezadany");
+            $error++;
+        } elseif (substr($this->request()->getValue('obrazok'),-4) != '.jpg') {
             $error++;
         } else {
             $post->setObrazok($this->request()->getValue('obrazok'));
         }
 
         if ($this->request()->getValue('nazov') == null) {
-            $post->setNazov("Nezadany");
             $error++;
         } else {
             $post->setNazov($this->request()->getValue('nazov'));
         }
 
         if ($this->request()->getValue('text') == null) {
-            $post->setText("Nezadany");
             $error++;
         } else {
             $post->setText($this->request()->getValue('text'));
@@ -138,7 +138,7 @@ class PrispevkyController extends AControllerBase
         $data = Prispevok::getAll();
         $i = 0;
         foreach ($data as $post) {
-            if( $post->getFilterID() == $id){
+            if( $post->getFilterID() != $id){
                 unset($data[$i]);
             }
             $i++;
@@ -149,8 +149,7 @@ class PrispevkyController extends AControllerBase
 
     public function filteredPosts()
     {
-        return $this->html();
-        //$data = Prispevok::getAll();
-        //return $this->html($data);
+        $data = Filter::getAll();
+        return $this->html($data);
     }
 }

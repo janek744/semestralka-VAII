@@ -29,7 +29,6 @@
         </button>
         <div class="collapse navbar-collapse" id="mainNav">
             <div class="navbar-nav">
-                <a class="nav-link" href="?c=prispevky">Domov</a>filteredPosts
                 <a class="nav-link" aria-current="page" href="?c=prispevky">Príspevky</a>
                 <a class="nav-link" aria-current="page" href="?c=prispevky&a=filteredPosts">Filtre</a>
                 <?php if (!$auth->isLogged()) { ?>
@@ -37,8 +36,13 @@
                 <?php } ?>
                 <?php if ($auth->isLogged()) { ?>
                     <a class="nav-link" href="?c=prispevky&a=create">Vytvor</a>
-                    <a class="nav-link" href="?c=user&a=edit">Zmeniť</a>
-                    <a class="nav-link" href="?c=user&a=delete">Vymazať</a>
+                    <div class="dropdown">
+                        <button class="dropbtn">Účet</button>
+                        <div class="dropdown-content">
+                            <a class="nav-link" href="?c=user&a=edit">Zmeniť</a>
+                            <a class="nav-link" href="?c=user&a=delete">Vymazať</a>
+                        </div>
+                    </div>
                     <a class="nav-link" href="?c=prispevky&a=myPosts">MyPosts</a>
                     <a class="nav-prihl" href="?c=auth&a=logout">Odhlásiť</a>
                 <?php } ?>

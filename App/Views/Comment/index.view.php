@@ -14,7 +14,7 @@ use \App\Models\Comment;
         ?>
             <div class="row prispevok">
             <?php if ($comment->getCommentText()) { ?>
-                <a class="nadpis" id="formNadpis" href="?c=prispevky"><?php echo substr($comment->getCommentText(), 0 ,40) ?></a>
+                <span class="nadpis" id="formNadpis" href="?c=prispevky"><?php echo substr($comment->getCommentText(), 0 ,40) ?></span>
             <?php } ?>
             </div>
             <?php } ?>

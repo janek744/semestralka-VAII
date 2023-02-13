@@ -12,7 +12,7 @@ class Filter extends Model
     /**
      * @return mixed
      */
-    public function getId()
+    public function getFilterId()
     {
         return $this->id;
     }
@@ -20,7 +20,7 @@ class Filter extends Model
     /**
      * @param mixed $id
      */
-    public function setId($id): void
+    public function setFilterId($id): void
     {
         $this->id = $id;
     }

@@ -12,5 +12,9 @@ window.onload = function () {
         } else if ( !ftext) {
             confirm("Nebol zadaný text, príspevok nebude pridaný");
         }
+
+        if (!fobrazok.endsWith('.jpg')) {
+            confirm("Zlý formát obrázku");
+        }
     }
 }

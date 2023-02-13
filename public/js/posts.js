@@ -1,30 +1,14 @@
 window.onresize = function() {
-    /*let text = "fdsdsf";
-    document.getElementById("formtext").innerHTML = text;*/
-    //document.getElementById('formtext').innerHTML=editedText;
-    //document.getElementById("formtext").innerHTML = name;
-    //540
-    /*let fname = document.getElementById("formtext");
-
-    if (window.innerWidth > 720) {
-        fname.style.fontSize = "40px";
-    }
-    if (window.innerWidth > 960) {
-        fname.style.fontSize = "60px";
-    }
-    if (window.innerWidth > 1140) {
-        fname.style.fontSize = "20px";
-    }*/
     let fname = document.getElementById("formtext");
 
     if (window.innerWidth > 720) {
-        fname.style.fontSize = "40px";
+        fname.style.fontSize = "20px";
     }
     if (window.innerWidth > 960) {
-        fname.style.fontSize = "60px";
+        fname.style.fontSize = "30px";
     }
     if (window.innerWidth > 1140) {
-        fname.style.fontSize = "20px";
+        fname.style.fontSize = "40px";
     }
 }
 
@@ -36,7 +20,7 @@ function deletePost(id) {
 }
 
 function myFunction() {
-    let fname = document.getElementById("formtext");
+    /*let fname = document.getElementById("formtext");
 
     if (window.innerWidth > 720) {
         fname.style.fontSize = "40px";
@@ -47,7 +31,7 @@ function myFunction() {
     if (window.innerWidth > 1140) {
         fname.style.fontSize = "20px";
     }
-    /*postText.style.fontSize = "px";
+    postText.style.fontSize = "px";
     canvas = document.createElement("canvas");
     context = canvas.getContext("2d");
     width = context.measureText(text).width;
