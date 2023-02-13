@@ -134,7 +134,16 @@ class PrispevkyController extends AControllerBase
     }
     public function refresh(): Response
     {
+        $id = $this->request()->getValue('postID');
         $data = Prispevok::getAll();
+        $i = 0;
+        foreach ($data as $post) {
+            if( $post->getFilterID() == $id){
+                unset($data[$i]);
+            }
+            $i++;
+        }
+
         return $this->html($data);
     }
 
