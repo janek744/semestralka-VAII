@@ -94,11 +94,18 @@ class PrispevkyController extends AControllerBase
         } else {
             $post->setText($this->request()->getValue('text'));
         }
+        if ($this->request()->getValue('zza') == null) {
+            $post->setFilterID(4);
+        } else {
+            $post->setFilterID('opt');
+        }
 
         if ($error > 0) {
             return $this->redirect("?c=prispevky&a=create");
         } else {
             $post->setUserID($this->app->getAuth()->getLoggedUserId());
+            $option = $_POST["opt"];
+            $post->setFilterID($option);
             $post->save();
             return $this->redirect("?c=prispevky");
         }
@@ -127,6 +134,11 @@ class PrispevkyController extends AControllerBase
     }
 
     public function myPosts(): Response {
+        $prispevky = Prispevok::getAll();
+        return $this->html($prispevky);
+    }
+
+    public function filteredPosts(): Response {
         $prispevky = Prispevok::getAll();
         return $this->html($prispevky);
     }

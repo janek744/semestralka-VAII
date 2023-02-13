@@ -42,7 +42,7 @@ use \App\Models\Prispevok;
  margin-top:10px;margin-bottom:10px;">EDITOVAŤ</a>
                 </div>
                     <div class="col-md-auto">
-                    <a href="?c=prispevky&a=delete&id=<?php echo $prispevok->getIdPrispevku()?>" class="btn" onresize="return deletePost (<?=$prispevok->getIdPrispevku()?>)" onclick="return deletePost (<?=$prispevok->getIdPrispevku()?>)" style="width: 200px;
+                    <a href="" class="btn" onresize="return deletePost (<?=$prispevok->getIdPrispevku()?>)" onclick="return deletePost (<?=$prispevok->getIdPrispevku()?>)" style="width: 200px;
  margin-top:10px;margin-bottom:10px;">VYMAZAŤ</a>
                 </div>
                 <?php } ?>

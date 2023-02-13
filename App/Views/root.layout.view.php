@@ -28,6 +28,7 @@
             <div class="navbar-nav">
                 <a class="nav-link" href="?c=prispevky">Domov</a>
                 <a class="nav-link" aria-current="page" href="?c=prispevky">Príspevky</a>
+                <a class="nav-link" aria-current="page" href="?c=prispevky&a=filteredPosts">Filtre</a>
                 <?php if (!$auth->isLogged()) { ?>
                     <a class="nav-prihl" href="?c=auth&a=login">Prihlásiť</a>
                 <?php } ?>

@@ -29,10 +29,21 @@ $layout = 'auth';
             <div class="nadp">
                 <br>
                 <label">Text
-                    <input type="text" name="text" id="textForm" value="<?php echo $data->getText() ?>"style="width: 90%; he">
+                    <input type="text" name="text" id="textForm" value="<?php echo $data->getText() ?>" style="width: 90%; he">
                 </label>
             </div>
                 <br><br>
+            <div class="nadp">
+                <label>Filter
+                </label>
+                <select name="opt" id="opt">
+                    <option name="opt" value="1">Zviera</option>
+                    <option name="opt" value="2">Auto</option>
+                    <option name="opt" value="3">Stroj</option>
+                    <option name="opt" value="4">PC</option>
+                </select>
+            </div>
+            <br><br>
             <div class="tlac">
                 <input type="submit" name="tlacitko" id="tlacitkoForm" value="Odoslat">
             </div>

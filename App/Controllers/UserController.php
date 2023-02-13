@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Core\AControllerBase;
 use App\Core\Responses\Response;
 use App\Models\User;
+use App\Models\Event;
 
 class UserController extends AControllerBase
 {
@@ -34,13 +35,13 @@ class UserController extends AControllerBase
             $userName = $_POST["login"];
             $userPass = $_POST["password"];
             if((strlen($userName) < 1) || (strlen($userName) > 10)){
-                if (preg_match("/[^A-Za-z0-9]/", $userName)){
+                if (!preg_match("/[^A-Za-z0-9]/", $userName)){
                     return $this->html(["error" => 'Nesprávne zadaný login']);
                 }
             }
 
             if((strlen($userPass) < 3) || (strlen($userPass) > 10)){
-                if (preg_match("/[^A-Za-z0-9]/", $userPass)){
+                if (!preg_match("/[^A-Za-z0-9]/", $userPass)){
                     return $this->html(["error" => 'Nesprávne zadané heslo']);
                 }
             }
@@ -56,6 +57,7 @@ class UserController extends AControllerBase
             $password = password_hash($data["password"], PASSWORD_DEFAULT);
             $user->setUserPassword($password);
             $user->save();
+
             return $this->redirect("?c=auth&a=login");
         }
         return $this->html();

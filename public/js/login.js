@@ -20,6 +20,8 @@ window.onload = function () {
                 confirm("V hesle boli zadané nepovolené znaky");
             }
         }
+
+        window.location.href = "?c=event&a=store&message=Zaregistroval sa uživateľ s menom ";
     }
 }
 

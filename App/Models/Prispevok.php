@@ -11,6 +11,23 @@ class Prispevok extends Model
     protected $nazov;
     protected $text;
     protected $userID;
+    protected $filterID;
+
+    /**
+     * @return mixed
+     */
+    public function getFilterID()
+    {
+        return $this->filterID;
+    }
+
+    /**
+     * @param mixed $filterID
+     */
+    public function setFilterID($filterID): void
+    {
+        $this->filterID = $filterID;
+    }
 
     /**
      * @return mixed
